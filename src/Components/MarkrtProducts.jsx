@@ -88,15 +88,15 @@ const MarketedProducts = () => {
                     </Button>
                   </div>
                   <div className="mt-2 flex gap-2">
-                    <Button className="flex-1 bg-[#10b981] text-secondary-300 gap-2 text-[18px]">
-                      <img
+                  <Button className="flex-1 !bg-[#12D091] text-secondary-300 gap-2 text-[18px]">
+                  <img
                         src={BuyIcon}
                         alt="Buy"
                         className="w-[20px] h-[20px]"
                       />
                       Buy
                     </Button>
-                    <Button className="flex-1 bg-[#19429d] text-secondary-300 gap-2 text-[18px]">
+                    <Button className="flex-1 !bg-[#1D4CB3] text-secondary-300 gap-2 text-[18px]">
                       <img
                         src={SellIcon}
                         alt="sell"

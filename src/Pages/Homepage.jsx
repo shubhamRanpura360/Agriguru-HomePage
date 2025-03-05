@@ -11,7 +11,7 @@ import PartnersSection from "../Components/PartnerSection";
 
 const Home = () => {
   return (
-    <div className="min-h-screen  bg-black ">
+    <div className="min-h-screen bg-black ">
       <section>
         <PriceUpdateTable />
       </section>
@@ -43,5 +43,4 @@ const Home = () => {
 
 export default Home;
  
-
 
