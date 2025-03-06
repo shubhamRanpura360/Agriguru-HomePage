@@ -77,7 +77,6 @@ const TopNavbar = () => {
               className="w-[16px] h-[8.67px]"
             />
           </div>
-
           <button
             onClick={toggleTheme}
             className="flex items-center  text-primary text-[18px] font-medium max-w-[130px] justify-center"
@@ -94,7 +93,7 @@ const TopNavbar = () => {
                 ? "Light Mode"
                 : theme === "dark"
                 ? "Dark Mode"
-                : "System"}
+                : "System"}    
             </span>
           </button>
         </div>
@@ -104,4 +103,3 @@ const TopNavbar = () => {
 };
 
 export default TopNavbar;
-
