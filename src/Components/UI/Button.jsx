@@ -17,7 +17,7 @@ export const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`w-[111px] h-[50px] flex items-center justify-center 
+      className={`w-[111px] h-[49px] flex items-center justify-center 
         rounded font-medium leading-[21.48px] 
         ${variants[variant]} ${className}`}
       {...props}

@@ -4,10 +4,10 @@ import { Button } from "./UI/Button";
 import agriguruUpdate1 from "../assets/icons/agriguru_update-1.svg";
 import agriguruUpdate2 from "../assets/icons/agriguru_update-2.svg";
 import agriguruUpdate3 from "../assets/icons/agrigur-update-3.svg";
-import ThreeDots from "./animations/ThreeDots";
 import GradientHeading from "./GradientHeading";
 import ArrowLeft from "../assets/icons/Arrow1.svg";
 import ArrowRight from "../assets/icons/Arrow-right.svg";
+import ThreeDots from "./animations/ThreeDots";
 
 const tabs = ["All Updates", "News", "Events", "Updates"];
 
@@ -83,9 +83,9 @@ const UpdatesSection = () => (
           <img src={ArrowRight} alt="Right Arrow" className="w-6 h-6 " />
         </button>
       </div>
-    </div>
+    </div>  
     <div className="flex justify-center mt-8">  
-      <ThreeDots />
+      <ThreeDots/>
     </div> 
   </div>
 );

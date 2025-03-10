@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom"; 
 import TopNavbar from "./TopNavbar";
 import SearchBar from "./SearchBar";
 import Header from "./Header";
 import Footer from "./Footer";
 import StickyElements from "../Components/StickyElements";
+import { useTheme } from "../Context/ThemeContext";
 
 const MainLayout = () => {
-  const [showTopNavbar, setShowTopNavbar] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 70) {
-        setShowTopNavbar(false); 
-      } else {
-        setShowTopNavbar(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { theme } = useTheme();
 
   return (
-    <div className="flex flex-col min-h-screen bg-black">
-      {showTopNavbar && <TopNavbar />}
+    <div className={`flex flex-col min-h-screen ${theme === "dark" ? "bg-black text-white" : "bg-white text-textColor-light"}`}>
+      <TopNavbar />
       <div className="sticky top-0 w-full z-50">
         <SearchBar />
         <Header />
@@ -36,18 +24,6 @@ const MainLayout = () => {
       <Footer />
     </div>
   );
-};
+};  
 
 export default MainLayout;
-
-
-
-
-
-
-
-
-
-
-
-

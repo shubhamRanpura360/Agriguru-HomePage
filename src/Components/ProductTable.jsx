@@ -7,6 +7,7 @@ import { Button } from "./UI/Button";
 import AddIcon from "../assets/icons/Add product icon.svg";
 import UpArrowIcon from "../assets/icons/Arrow.svg";
 import DownArrowIcon from "../assets/icons/Arrow-down.svg";
+import { useTheme } from "../Context/ThemeContext";
 
 const headers = [
   "Category",
@@ -21,25 +22,32 @@ const headers = [
 ];
 
 const ProductTable = ({ products }) => {
+  const { theme } = useTheme();
+
   return (
     <div className="overflow-x-auto flex justify-center items-center pl-[4px]">
-      <table className="text-primary w-full max-w-[1448px] ">
+      <table className="text-primary w-full max-w-[1448px]">
         <thead>
           <tr>
             {headers.map((header, index) => (
-              <th key={index} className="py-3 px-2 ">
+              <th key={index} className="py-3 px-2">
                 <button
-                  key={index}
                   className={`${
                     header === "Product" ? "w-[270px]" : "w-[112px]"
-                  } h-[50px] bg-[#212124] text-primary text-[16px] px-4 py-2 rounded-md flex items-center justify-between font-medium`}
+                  } h-[50px] px-3 py-2 rounded-md flex items-center justify-between font-medium 
+               ${
+                 theme === "dark"
+                   ? "bg-[#212124] text-primary"
+                   : "bg-[#E9E8ED] text-[#1D1D1F]"
+               }`}
                 >
                   {header}
                   {!["Price", "Change", "Chart"].includes(header) && (
                     <img
                       src={CountryButtonIcon}
                       alt="icon"
-                      className="w-[8.22px] h-[14px] gap-2"
+                      className={`w-[8.22px] h-[14px] gap-2 
+                    ${theme === "dark" ? "" : "filter brightness-0"}`}
                     />
                   )}
                 </button>
@@ -58,8 +66,13 @@ const ProductTable = ({ products }) => {
         </thead>
         <tbody>
           {products.map((product, index) => (
-            <tr key={index}>
-              <td className="  py-3 px-4">{product.category}</td>
+            <tr
+              key={index}
+              className={`font-medium ${
+                theme === "dark" ? "text-secondary-200" : "text-[#333333]"
+              }`}
+            >
+              <td className="py-3 px-4">{product.category}</td>
               <td className="py-3 px-4 flex items-center gap-2">
                 <img
                   src={CountryIcon}
@@ -68,7 +81,7 @@ const ProductTable = ({ products }) => {
                 />
                 {product.country}
               </td>
-              <td className="py-3 px-4 ">{product.product}</td>
+              <td className="py-3 px-4">{product.product}</td>
               <td className="py-3 px-4">{product.shipBy}</td>
               <td className="py-3 px-4">{product.incoterm}</td>
               <td className="py-3 px-4 flex items-center gap-2">
@@ -99,18 +112,26 @@ const ProductTable = ({ products }) => {
                   />
                 </span>
               </td>
-
               <td className="py-3 px-4">{product.change}</td>
               <td className="py-3 px-4">
                 <img
                   src={ChartIcon}
                   alt={product.chart}
-                  className="w-[21.13px] h-[21.13px]"
+                  className={`w-[21.13px] h-[21.13px] ${
+                    theme === "dark" ? "" : "filter brightness-0"
+                  }`}
                 />
               </td>
               <td className="py-3 px-6 text-right">
-                <button className="text-primary pr-6 ">Next</button>
-                <button className="text-[#EF4444] ">
+                <button
+                  className={`pr-6 font-medium ${
+                    theme === "dark" ? "text-primary" : "text-[#333333]"
+                  }`}
+                >
+                  Next
+                </button>
+
+                <button className="text-[#EF4444]">
                   <Trash2 className="h-[20.45px] w-[22.08px] inline" />
                 </button>
               </td>
